@@ -3,10 +3,10 @@ import https from "https";
 const apiKey = "f278e3c8325f6572b6df"
 
 
-class CurrencyService {
+class CurrencyController {
 
     convertBetweenTwoCurrencies(fromCurrency, toCurrency, quantity, cb) {
-        const query = encodeURIComponent(fromCurrency) + "_" + encodeURIComponent(toCurrency)
+        const query = fromCurrency + "_" + toCurrency
         https.get(
             `https://free.currconv.com/api/v7/convert?q=${query}&compact=ultra&apiKey=${apiKey}`,
             (res) => {
@@ -78,4 +78,4 @@ class CurrencyService {
     }
 }
 
-export const currencyService = new CurrencyService();
+export const currencyController = new CurrencyController();
